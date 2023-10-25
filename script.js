@@ -28,3 +28,26 @@ const arra=['sandra', 22 , 'hi']
 
     console.log(arrowFunc());
 
+ setInterval(()=>{
+    console.log("running")
+ },1000 )
+
+ setTimeout(()=>{
+    console.log("hoi")
+ },2000);
+
+
+ setTimeout(()=>{
+    console.log("sayanth")
+ },3000);
+
+
+ const interval = setInterval(()=>{
+    console.log("sandra")
+ },1000);
+
+
+ setTimeout(()=>{
+
+    clearInterval(interval)
+ },6000)
