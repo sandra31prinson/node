@@ -2,7 +2,10 @@ var http = require('http')
 var fs = require('fs')
 
 http.createServer(function(req,res){
-    
+    if(req.url==='/'){
+
+   
+
     fs.readFile('index.html',function(err,data){
 
         res.writeHead(200,{'content-Type':'text/html'})
@@ -11,5 +14,19 @@ http.createServer(function(req,res){
 
     })
 
+  }  
+   else if(req.url=='/login'){
 
-}).listen(8000)
+    res.write('login')
+    res.end()
+
+
+    }
+
+    else{
+        res.write('error')
+        res.end()
+    }
+
+
+}).listen(8000,()=>console.log('server started'))
