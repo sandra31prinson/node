@@ -1,8 +1,13 @@
 var http = require('http')
 var fs = require('fs')
+var url = require('url')
 
 http.createServer(function(req,res){
-    if(req.url==='/'){
+
+var q=url.parse(req.url)
+
+
+    if(q.pathname==='/'){
 
    
 
@@ -15,13 +20,24 @@ http.createServer(function(req,res){
     })
 
   }  
-   else if(req.url=='/login'){
-
-    res.write('login')
+   else if(q.pathname=='/signup'){
+    fs.readFile('signup.html',(err,data)=>{
+        res.writeHead(200,{'content-Type':'text/html'})
+        res.write(data)
     res.end()
 
+    })
+ 
+    
 
     }
+    else if(q.pathname=='/signupaction'){
+
+        res.write('action')
+        res.end()
+      
+    
+        }
 
     else{
         res.write('error')
