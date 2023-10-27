@@ -4,7 +4,7 @@ var url = require('url')
 
 http.createServer(function(req,res){
 
-var q=url.parse(req.url)
+var q=url.parse(req.url,true)
 
 
     if(q.pathname==='/'){
@@ -32,6 +32,8 @@ var q=url.parse(req.url)
 
     }
     else if(q.pathname=='/signupaction'){
+
+        console.log(q.query,)
 
         res.write('action')
         res.end()
